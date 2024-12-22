@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be visible.
+  </div>
+  <script>
+    document.getElementById("myDiv").style.display = "none";
+    setTimeout(function(){
+        requestAnimationFrame(function(){
+            document.getElementById("myDiv").style.display="block";
+            document.getElementById("myDiv").innerHTML = "This text is added after a delay.";
+        })
+    },3000);
+  </script>
+</body>
+</html>
